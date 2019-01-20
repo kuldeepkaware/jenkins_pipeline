@@ -20,6 +20,13 @@ pipeline {
             }
         }
 
+        stage('Package Stage'){
+		steps{
+		withMaven(maven : 'LocalMaven') {
+                    sh 'mvn package'
+		}
+		}
+		}
 
         stage ('Deployment Stage') {
             steps {
